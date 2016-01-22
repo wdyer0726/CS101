@@ -1,0 +1,4 @@
+This is a link <a href="link.com"/a>, <a href="link2.com"/a>
+link.cxxom
+link2.com
+Niione
