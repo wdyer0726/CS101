@@ -74,13 +74,18 @@ def get_all_links(page):
         else:
             break
     return links
-
+#to find max_depth we need to introduce new list that tracks the pages
 def crawl_web(seed,max_depth):
     tocrawl = [seed]
     crawled = []
-    while tocrawl:
+    next_depth = []
+    depth = 0
+    while tocrawl and depth <= max_depth:
         page = tocrawl.pop()
         if page not in crawled:
-            union(tocrawl, get_all_links(get_page(page)))
+            union(next_depth, get_all_links(get_page(page)))
             crawled.append(page)
+        if not tocrawl:
+            to crawl, nextdepth = nextdepth, []
+            depth=depth + 1
     return crawled
