@@ -1,4 +1,0 @@
-This is a link <a href="link.com"/a>, <a href="link2.com"/a>
-link.com
-link2.com
-None
