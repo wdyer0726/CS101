@@ -86,6 +86,6 @@ def crawl_web(seed,max_depth):
             union(next_depth, get_all_links(get_page(page)))
             crawled.append(page)
         if not tocrawl:
-            to crawl, nextdepth = nextdepth, []
+            tocrawl, next_depth = next_depth, []
             depth=depth + 1
     return crawled
