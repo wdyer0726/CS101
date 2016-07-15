@@ -3,23 +3,20 @@
 # procedure, symmetric, which takes a list as input, and returns the
 # boolean True if the list is symmetric and False if it is not.
 def symmetric(p):
-    n = len(p)
     i = 0
-    if len(p) == 0:
+    n = len(p)
+    if n == 0:
         return True
-    if n != len(p[i]):
-        return False
     while i < n:
         j = 0
         while j < n:
             if p[i][j] != p[j][i]:
                 return False
-            j = j + 1
-        i = i + 1
+            j = j+ 1
+        if len(p) != len(p[i]):
+            return False
+        i = i + 1    
     return True
-
-      
-    
 
 print symmetric([[1, 2, 3],
                 [2, 3, 4],
@@ -45,6 +42,7 @@ print symmetric([[1, 2, 3, 4],
                 [3, 4, 5, 6]])
 #>>> False
 
-print symmetric([[1,2,3],
-                 [2,3,1]])
+print symmetric( [[1,2,3], 
+                [2,3,4,2], 
+                [3,4,1]])
 #>>> False
