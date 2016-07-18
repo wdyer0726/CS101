@@ -1,3 +1,4 @@
+# By Ashwath from forums
 # Given a list of lists representing a n * n matrix as input, 
 # define a  procedure that returns True if the input is an identity matrix 
 # and False otherwise.
@@ -9,24 +10,25 @@
 # is equal to the number of columns)
 
 def is_identity_matrix(matrix):
-    length = len(matrix)
-    digit = 1
+    n = len(matrix)
     i = 0
-    if len(matrix) == 0:
+    if n == 0:
         return False
-    if length != len(matrix[i]):
+    if n != len(matrix[i]):
         return False
-    while i < length:
+    while i < n:
         j = 0
-        while j < length:
+        while j < n:
             if i == j and matrix[i][j] != 1:
                 return False
-            if i != j and (matrix[j][i] != 0 or matrix[i][j] != 0):
+            if i != j and (matrix[i][j] != 0 or matrix[j][i] != 0):
                 return False
             j = j + 1
         i = i + 1
     return True
-    
+
+
+
 # Test Cases:
 
 matrix1 = [[1,0,0,0],
@@ -76,3 +78,8 @@ matrix7 = [[1, -1, 1],
 print is_identity_matrix(matrix7)
 #>>>False           
 
+matrix8 = [[1,0,0,0],
+           [0,1,0,1],
+           [0,0,1,0],
+           [0,0,0,1]]
+print is_identity_matrix(matrix8)
