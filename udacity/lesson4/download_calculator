@@ -1,0 +1,89 @@
+# Write a procedure download_time which takes as inputs a file size, the
+# units that file size is given in, bandwidth and the units for
+# bandwidth (excluding per second) and returns the time taken to download 
+# the file.
+# Your answer should be a string in the form
+# "<number> hours, <number> minutes, <number> seconds"
+
+# Some information you might find useful is the number of bits
+# in kilobits (kb), kilobytes (kB), megabits (Mb), megabytes (MB),
+# gigabits (Gb), gigabytes (GB) and terabits (Tb), terabytes (TB).
+
+#print 2 ** 10      # one kilobit, kb
+#print 2 ** 10 * 8  # one kilobyte, kB
+
+#print 2 ** 20      # one megabit, Mb
+#print 2 ** 20 * 8  # one megabyte, MB
+
+#print 2 ** 30      # one gigabit, Gb
+#print 2 ** 30 * 8  # one gigabyte, GB
+
+#print 2 ** 40      # one terabit, Tb
+#print 2 ** 40 * 8  # one terabyte, TB
+
+# Often bandwidth is given in megabits (Mb) per second whereas file size 
+# is given in megabytes (MB).
+import numbers
+
+def convert_seconds(input_time):
+    hours = int(input_time / 3600)
+    total_minutes = input_time / 60
+    hours_in_minutes = hours * 60
+    minutes = int( total_minutes - hours_in_minutes)
+    seconds = (input_time - (hours*3600) - (minutes*60))
+    if isinstance(seconds, int):
+        seconds = int(seconds)
+    else:
+        seconds = round(seconds, 10)
+    result = ''
+    if hours == 1:
+        result += str(hours) + ' hour, '
+    else:
+        result += str(hours) + ' hours, '
+    if minutes == 1:
+        result += str(minutes) + ' minute, '
+    else:
+        result += str(minutes) + ' minutes, '
+    if seconds == 1:
+        result += str(seconds) + ' second '
+    else:
+        result += str(seconds) + ' seconds '
+    return result
+    
+def download_time(file_size,file_units,bandwidth,band_units):
+    file_value = 0
+    band_value = 0
+    size_value = [[2**10, 'kb'], [2**10*8, 'kB'], [2**20, 'Mb'], [2**20*8, 'MB'],
+                    [2**30, 'Gb'], [2**30*8, 'GB'], [2**40, 'Tb'], [2**40*8, 'TB']]
+    for unit in size_value:
+        if unit[1] == file_units:
+            file_value = unit[0]
+        if band_units == unit[1]:
+            band_value = unit[0]
+    total_size_in_bits = file_size * file_value
+    total_bandwidth = bandwidth * band_value
+    seconds = float(total_size_in_bits) / total_bandwidth
+    return convert_seconds(seconds)
+
+
+
+print download_time(1024,'kB', 1, 'MB')
+#>>> 0 hours, 0 minutes, 1 second # 1.0 second is also acceptable
+
+print download_time(1024,'kB', 1, 'Mb')
+#>>> 0 hours, 0 minutes, 8 seconds  # 8.0 seconds is also acceptable
+
+print download_time(13,'GB', 5.6, 'MB')
+#>>> 0 hours, 39 minutes, 37.1428571429 seconds
+
+print download_time(13,'GB', 5.6, 'Mb')
+#>>> 5 hours, 16 minutes, 57.1428571429 seconds
+
+print download_time(10,'MB', 2, 'kB')
+#>>> 1 hour, 25 minutes, 20 seconds  # 20.0 seconds is also acceptable
+
+print download_time(10,'MB', 2, 'kb')
+#>>> 11 hours, 22 minutes, 40 seconds  # 40.0 seconds is also acceptable
+
+print download_time(11, 'GB', 5, 'MB')
+
