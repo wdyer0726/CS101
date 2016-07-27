@@ -33,9 +33,9 @@ def convert_seconds(input_time):
     else:
         result += str(minutes) + ' minutes, '
     if seconds == 1:
-        result += str(seconds) + ' second, '
+        result += str(seconds) + ' second '
     else:
-        result += str(seconds) + ' seconds, '
+        result += str(seconds) + ' seconds '
     return result
 
 
