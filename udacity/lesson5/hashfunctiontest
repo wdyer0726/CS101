@@ -1,0 +1,23 @@
+#returns the distribution of the hash function between all the buckets
+#need get_page function
+
+
+words = get_page('url').split()
+
+def hash_string(keyword,buckets):
+    position = 0
+    for letter in keyword:
+        position = (position + ord(letter)) % buckets
+    return position
+
+def test_hash_function(func, keys, size):
+  results = [0] * size
+  keys_used = []
+  for w in keys:
+    if w not in keys_used:
+      hv = func(w, size)
+      results[hv] += 1
+      keys_used.append(w)
+  return results
+  
+counts = test_hash_function(hash_string), words, 12)
