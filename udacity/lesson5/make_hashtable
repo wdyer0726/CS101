@@ -4,12 +4,18 @@
 # and returns an empty hash table with
 # nbuckets empty buckets.
 
+#def make_hashtable(nbuckets):
+ #   i = 0
+  #  hashtable = []
+   # while i < nbuckets:
+    #    hashtable.append([])
+     #   i += 1
+    #return hashtable
+
 def make_hashtable(nbuckets):
-    i = 0
     hashtable = []
-    while i < nbuckets:
+    for unusedelement in range(0, nbuckets):
         hashtable.append([])
-        i += 1
     return hashtable
 
 print make_hashtable(12)
