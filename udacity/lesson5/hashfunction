@@ -7,8 +7,8 @@
 def hash_string(keyword,buckets):
     position = 0
     for letter in keyword:
-        position += ord(letter)
-    return position % buckets
+        position = (position + ord(letter)) % buckets
+    return position
 
 
 
