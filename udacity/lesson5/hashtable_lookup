@@ -12,7 +12,7 @@ def hashtable_lookup(htable,keyword):
     for entry in bucket:
         if entry[0] == keyword:
             return entry[1]
-    return "None."
+    return None.
 
 
 def hashtable_add(htable,keyword,value):
