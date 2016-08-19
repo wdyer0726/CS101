@@ -5,18 +5,6 @@ def record_user_click(index,keyword,url):
             if entry [0] == url:
                 entry[1] = entry[1] + 1
 
-def add_to_index(index, keyword, url):
-    #format of index data structure = [[keyword, [[url,count], [url, count],...]],...]
-    for entry in index:
-        if entry[0] == keyword:
-            for urls in entry[1]:
-                if urls [0] == url:
-                    return
-            entry[1].append([url,0])
-            return
-    # not found, add new keyword to index
-    index.append([keyword, [[url, 0]]])
-
 
 def get_page(url):
     try:
@@ -71,7 +59,7 @@ def get_all_links(page):
 def crawl_web(seed):
     tocrawl = [seed]
     crawled = []
-    index = []
+    index = {}
     while tocrawl:
         page = tocrawl.pop()
         if page not in crawled:
@@ -86,10 +74,15 @@ def add_page_to_index(index, url, content):
     for word in words:
         add_to_index(index, word, url)
 
+def add_to_index(index, keyword, url): 
+    if keyword in index:
+        index[keyword].append(url) 
+    else:
+        index[keyword] = [url]
+
 def lookup(index, keyword):
-    for entry in index:
-        if entry[0] == keyword:
-            return entry[1]
+    if keyword in index:
+        return index[keyword]
     return None
 
 
