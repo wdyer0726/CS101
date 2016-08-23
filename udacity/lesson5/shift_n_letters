@@ -1,0 +1,30 @@
+# Write a procedure, shift_n_letters which takes as its input a lowercase
+# letter, a-z, and an integer n, and returns the letter n steps in the
+# alphabet after it. Note that 'a' follows 'z', and that n can be positive,
+#negative or zero.
+
+#def shift_n_letters(letter, n):
+    #output = 0
+    #output = (ord(letter) + n) - ord('a')
+    #output = output % 26
+    #output = output + ord('a')
+    #return chr(output)
+    
+#succinct version
+def shift_n_letters(letter, n):
+    return chr((((ord(letter) + n - ord('a')) %26) + ord('a')))
+
+
+
+print shift_n_letters('s', 1)
+#>>> t
+print shift_n_letters('s', 2)
+#>>> u
+print shift_n_letters('s', 10)
+#>>> c
+print shift_n_letters('s', -10)
+#>>> i
+print shift_n_letters('a', -10)
+#>>> q
+print shift_n_letters('b', -1)
+#>>> a
