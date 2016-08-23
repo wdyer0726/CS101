@@ -1,0 +1,18 @@
+# Write a procedure, shift, which takes as its input a lowercase letter,
+# a-z and returns the next letter in the alphabet after it, with 'a' 
+# following 'z'.
+
+def shift_a_letter(letter):
+    while ord(letter) < 122:
+        return chr(ord(letter) + 1)
+    else:
+        return 'a'
+
+
+
+print shift_a_letter('a')
+#>>> b
+print shift_a_letter('n')
+#>>> o
+print shift_a_letter('z')
+#>>> a
