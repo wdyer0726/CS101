@@ -1,0 +1,38 @@
+#Define a faster fibonacci procedure that will enable us to computer
+#fibonacci(36).
+
+def fibonacci(n):
+    result = 0
+    n1 = 1
+    n2 = 0
+    i = 2    
+    if n == 0:
+    	return 0
+    if n == 1:
+    	result += 1
+    else:
+		while i <= n:
+		    result = n1 + n2
+		    n2 = n1
+		    n1 = result
+		    i += 1
+    return result
+
+
+def fibonacci2(n):
+  current = 0
+  after = 1
+  for i in range(0, n):
+    current, after = after, current + after
+  return current
+
+
+
+print fibonacci(0)
+#>>> 0
+print fibonacci(1)
+#>>> 1
+print fibonacci(3)
+#>>> 2
+print fibonacci(35)
+#>>> 9227465
