@@ -1,0 +1,24 @@
+#Input: A string containing uppercase and lowercase alphabet characters and spaces. Example Input: I am a sentence
+
+#Output: The same string with alternating upper and lower case characters, with each word beginning with a capital letter 
+#followed by a lowercase, followed by an uppercase, etc. Example Output: I Am A SeNtEnCe
+
+
+def casereplace(string):
+    result = ''
+    charlist = list(string)
+    i = 0
+    for char in charlist:
+        if char.isalpha():
+            i += 1
+            if i % 2 == 1:
+                result += char.upper()
+            if i % 2 == 0:
+                result += char.lower()
+        else: 
+            result += ' '
+            i = 0
+    return result
+    
+string = 'sadasdasd asdasdasd asdasdasd'
+print casereplace(string)
