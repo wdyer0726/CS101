@@ -1,0 +1,14 @@
+#Take a break every two hours and listen to a song
+
+import webbrowser
+import time
+
+def TakeABreak(numberofbreaks):
+	i = 0
+	print "This program has started at:" + time.ctime()
+	while i < numberofbreaks:
+		time.sleep(2*60*60)
+		webbrowser.open("https://www.youtube.com/watch?v=Bld_-7gzJ-o")
+		i += 1
+		
+TakeABreak(3)
