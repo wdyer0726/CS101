@@ -1,8 +1,16 @@
 import media
 
 toy_story = media.Movie("Toy Story", 
-			"A story of a boy and his toys that come to life",
-			"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjM_PfRh5DPAhUIWT4KHZHmCVcQjRwIBA&url=http%3A%2F%2Fwww.impawards.com%2F1995%2Ftoy_story_ver1_xlg.html&psig=AFQjCNGHFSA0r24wuDX5svBQsoHbLF45lg&ust=1473983787967429",
-			"https://www.youtube.com/watch?v=KYz2wyBy3kc")
+"A story of a boy and his toys that come to life",
+"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjM_PfRh5DPAhUIWT4KHZHmCVcQjRwIBA&url=http%3A%2F%2Fwww.impawards.com%2F1995%2Ftoy_story_ver1_xlg.html&psig=AFQjCNGHFSA0r24wuDX5svBQsoHbLF45lg&ust=1473983787967429",
+"https://www.youtube.com/watch?v=KYz2wyBy3kc"
+	)
 						
 print(toy_story.storyline)
+
+avatar = media.Movie("Avatar",
+"A marine on an alien planet",
+"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiG1f3HiZDPAhXJ4CYKHXqHCX0QjRwIBw&url=https%3A%2F%2Fwww.movieposter.com%2Fq%2Favatar_posters.html&psig=AFQjCNGzu4LzJEaMLzG9VmdQqwfsgC2xAQ&ust=1473984302555604",
+"https://www.youtube.com/watch?v=5PSNL1qE6VY"
+	)
+print (avatar.storyline)
